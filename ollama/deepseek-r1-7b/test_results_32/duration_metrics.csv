@@ -1,0 +1,2 @@
+Timestamp,Concurrency,MaxDuration,MinDuration,AvgDuration,P99Duration
+2025-01-30T18:10:31-03:00,32,375.656,161.052,248.641,375.656

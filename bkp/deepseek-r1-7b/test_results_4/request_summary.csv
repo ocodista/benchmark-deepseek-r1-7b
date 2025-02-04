@@ -1,0 +1,9 @@
+RequestID,TTFB,TotalDuration,ResponseDuration,WaitingTime,TokenCount,StatusCode,Status
+2,1.540,79.139,79.139,1.540,1549,200,Completed
+3,1.540,90.741,90.741,1.540,1778,200,Completed
+1,1.540,100.192,100.192,1.540,1981,200,Completed
+4,1.541,107.170,107.170,1.541,2202,200,Completed
+4,0.331,65.992,65.992,0.331,1408,200,Completed
+1,0.524,82.509,82.509,0.524,1712,200,Completed
+2,0.330,96.539,96.539,0.330,2068,200,Completed
+3,0.525,99.889,99.889,0.525,2258,200,Completed
