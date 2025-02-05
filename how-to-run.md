@@ -1,5 +1,5 @@
 # Running DeepSeek R1 Benchmark
-![Gopher vs Whale and Llama](./art.webp)
+![Gopher Llama](./cover.webp)
 
 ## Requirements
 - Go v1.23.4
