@@ -462,11 +462,11 @@ def plot_process_metrics(process_metrics):
     test_dirs = sorted(glob.glob('ollama/deepseek-r1-7b/test_results_*'), 
                       key=lambda x: int(x.split('_')[-1]))
     
-    # TODO: Make PIDs configurable via command line or config file
-    target_pids = [40163, 42567]  # Focus only on these PIDs - ollama and ollama-cuda processes
+    # Get PIDs from the process metrics files
+    pids = sorted(process_metrics.keys())
     
     # Create separate tables for each PID
-    for pid in target_pids:
+    for pid in pids:
         headers = ['Concurrency', 'Avg CPU%', 'Max CPU%', 'Avg Mem%', 'Max Mem%', 'Avg Threads', 'Avg FDs', 'Avg RAM(MB)', 'Max RAM(MB)']
         rows = []
         
@@ -522,10 +522,7 @@ def plot_process_metrics(process_metrics):
                       key=lambda x: int(x.split('_')[-1]))
     concurrency_levels = [int(d.split('_')[-1]) for d in test_dirs]
     
-    # TODO: Make PIDs configurable via command line or config file
-    target_pids = [40163, 42567]  # Focus only on these PIDs - ollama and ollama-cuda processes
-    
-    for pid_idx, pid in enumerate(target_pids):
+    for pid_idx, pid in enumerate(pids):
         metrics_by_concurrency = {}
         
         # First collect all metrics by concurrency level
@@ -556,7 +553,7 @@ def plot_process_metrics(process_metrics):
         fd_values = [metrics_by_concurrency[x]['fds'] for x in x_values]
         vms_values = [metrics_by_concurrency[x]['vms'] for x in x_values]
         
-        color = colors[pid_idx]
+        color = colors[pid_idx % len(colors)]
         
         # Plot all metrics
         metrics_to_plot = [
